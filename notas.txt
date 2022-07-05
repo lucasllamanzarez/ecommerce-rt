@@ -1,0 +1,70 @@
+//JSON
+
+var listaProd = localStorage.getItem('listaProd');
+
+listaProd = JSON.parse(listaProd);
+
+console.log(listaProd);
+
+
+//var names = ["mehvish", "tahir", "aftab", "martell"];
+//names.forEach(element => document.getElementById('listaProd').innerHTML(element));
+
+//localStorage.setItem('producto', JSON.stringify(productos));
+
+https://es.stackoverflow.com/questions/49936/c%C3%B3mo-imprimir-desde-javascript-a-html-el-contenido-de-un-array-con-varios-valore
+
+https://www.delftstack.com/es/howto/javascript/javascript-json-array-of-objects/#crear-un-array-de-objetos-json
+
+//CREAR ELEMENTO
+const divProducto = document.createElement("<div></div>")
+
+    const nombreProducto = document.createElement("<h2></h2>")
+    nombreProducto.textContent = `Nombre producto: ` + producto.nombre
+    divProducto.appendChild(nombreProducto)
+
+    const precioProducto = document.createElement("<p></p>")
+    precioProducto.textContent = `Precio producto: $` + producto.precio
+    divProducto.appendChild(precioProducto)
+
+    document.getElementById("listaProd").appendChild(divProducto)
+
+
+
+
+
+
+
+//DATOS DIRECTOS DEL HTML
+<div class="row">  
+                        <div class="col">
+                            <h4>Placa de video Asus</h4>
+                            <img src="images/placavideo.jpg" alt="ASUS">
+                            <p class="precio">$75000</p>
+                            <a href="#">Agregar</a>
+                        </div>
+                        <div>
+                            <h4>Teclado Logitech</h4>
+                            <img src="images/teclado.jpg" alt="LOGITECH">
+                            <p class="precio">$10000</p>
+                            <a href="#">Agregar</a>
+                        </div>
+                        <div>
+                            <h4>Mouse Logitech</h4>
+                            <img src="images/mouse.jpg" alt="LOGITECH">
+                            <p class="precio">$5000</p>
+                            <a href="#">Agregar</a>
+                        </div>
+                        <div>
+                            <h4>Gabinete Thermaltake</h4>
+                            <img src="images/gabiente.jpg" alt="THERMAL">
+                            <p class="precio">$8000</p>
+                            <a href="#">Agregar</a>
+                        </div>
+                        <div>
+                            <h4>Fuente Thermaltake</h4>
+                            <img src="images/fuente.jpg" alt="THERMAL">
+                            <p class="precio">$12000</p>
+                            <a href="#">Agregar</a>
+                        </div>
+                    </div>  

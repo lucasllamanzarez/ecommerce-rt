@@ -1,0 +1,17 @@
+/* Reseteo */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    border: 1px;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+div img {
+    width: auto;
+    height: 200px; 
+}
