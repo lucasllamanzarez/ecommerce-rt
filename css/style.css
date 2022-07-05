@@ -5,13 +5,13 @@
 }
 
 div {
-    border: 1px;
-    border-radius: 5px;
+    /*border: solid black 1px;
+    border-radius: 5px;*/
     text-align: center;
-
 }
 
 div img {
     width: auto;
     height: 200px; 
+
 }

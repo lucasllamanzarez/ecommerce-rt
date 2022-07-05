@@ -16,23 +16,20 @@ https://es.stackoverflow.com/questions/49936/c%C3%B3mo-imprimir-desde-javascript
 
 https://www.delftstack.com/es/howto/javascript/javascript-json-array-of-objects/#crear-un-array-de-objetos-json
 
-//CREAR ELEMENTO
-const divProducto = document.createElement("<div></div>")
-
-    const nombreProducto = document.createElement("<h2></h2>")
-    nombreProducto.textContent = `Nombre producto: ` + producto.nombre
-    divProducto.appendChild(nombreProducto)
-
-    const precioProducto = document.createElement("<p></p>")
-    precioProducto.textContent = `Precio producto: $` + producto.precio
-    divProducto.appendChild(precioProducto)
-
-    document.getElementById("listaProd").appendChild(divProducto)
+//Llamo archivo JSON para cargar los productos en el localStorage
+fetch("json/productos.json")
+.then(response => {
+   return response.json();
+})
+.then(jsonData => localStorage.setItem('producto', JSON.stringify(jsonData)));
 
 
+//Muestro lo productos cargados previamente en el LocalStorage
+const listaProd = localStorage.getItem('producto');
+//console.log('listaProductos: ', JSON.parse(listaProd));
 
 
-
+//console.log(productos[i]); Verifico.
 
 
 //DATOS DIRECTOS DEL HTML
