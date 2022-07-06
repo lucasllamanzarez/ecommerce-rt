@@ -57,5 +57,6 @@ const divProducto = document.createElement("div");
 
 
 document.getElementById("divProd").appendChild(divProducto);
+            divProducto.classList = ""
 
 } 
