@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <-- BootStarp CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 <!-- ICONO TAB -->
@@ -24,7 +24,39 @@
 
             </nav>
                     <section class="container">
-                            <div id="divProd" class="row"></div>                           
+                            <div id="divProd" class="row align-items-center divProd"></div>                           
+                </section>
+
+                    <section class="container">
+                        <div id="carrito">
+                            <div class="container">
+                                <br>       
+                                <div id="listaCarrito" class="row">
+                                    <table class="table table-striped table-dark">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio unitario</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Total</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody class="tbodyCarrito">
+                                        </tbody>
+                                      </table> 
+                                      <br><br>
+                                      <div class="row mx-4">
+                                        <div class="col">
+                                          <h3 class="itemCartTotal text-black">Total: 0</h3>
+                                        </div>
+                                        <div class="col d-flex justify-content-end">
+                                          <button class="btn btn-success">COMPRAR</button>
+                                        </div>
+                                      </div>
+                                      <br><br>
+                                </div>
+                            </div>
+                        </div>
                 </section>
 
         <footer>
@@ -32,8 +64,7 @@
     </footer>
 
 <!-- JS BootStrap -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!-- Sweet Alert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Java Script -->

@@ -36,7 +36,8 @@ var productos = [
       
     
 //Escribo Productos en el DIV del HTML
-const divProducto = document.createElement("div");
+ const divProducto = document.createElement("div");
+        divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd";
 
    const nombreProducto = document.createElement("h3");
          nombreProducto.textContent = `Producto: ` + productos[i].nombre;
@@ -48,15 +49,34 @@ const divProducto = document.createElement("div");
 
    const imgProducto = document.createElement("img");
                                           imgProducto.src = productos[i].imagen;
+                                          imgProducto.classList = "rounded mx-auto d-block";
                divProducto.appendChild(imgProducto);
     
     const btnProducto = document.createElement("button");
                         btnProducto.innerHTML = "Agregar";
-                        btnProducto.classList = "btn btn-primary";
+                            btnProducto.classList = "btn btn-primary";
+                            btnProducto.id = "btnAgr" + i;
+                            btnProducto.addEventListener('click', agregarProd);
                 divProducto.appendChild(btnProducto);
 
 
 document.getElementById("divProd").appendChild(divProducto);
-            divProducto.classList = ""
 
 } 
+
+
+//Carrito
+
+
+//Funcion Agregar Productos
+function agregarProd() {
+           // JSON.parse(localStorage.setItem()); 
+     swal({
+     title: "Producto agregado",
+     text: "Item nuevo en el carrito",
+     icon: "info",
+   });
+  // console.log(carrito);
+}
+
+

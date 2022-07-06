@@ -4,19 +4,31 @@
     padding: 0;
 }
 
-div {
-    /*border: solid black 1px;
-    border-radius: 5px;*/
+body {
+        background: url(../images/3431856.jpg) no-repeat center center fixed;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       color: white;  
+
+}
+
+section {
+    border: solid black 1px;
+    border-radius: 5px;
     text-align: center;
+    background-color: white;
+    color: black;
 }
 
 div img {
     width: auto;
     height: 200px; 
-
 }
 
-div button {
-    text-align: center;
-    justify-content: center;
+.divProd {
+    padding: 25px;
+    border: solid black 1px;
+    border-radius: 5px;
 }
