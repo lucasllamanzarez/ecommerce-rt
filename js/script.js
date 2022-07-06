@@ -49,7 +49,12 @@ const divProducto = document.createElement("div");
    const imgProducto = document.createElement("img");
                                           imgProducto.src = productos[i].imagen;
                divProducto.appendChild(imgProducto);
-   const btnProducto = document.createElement("button");
+    
+    const btnProducto = document.createElement("button");
+                        btnProducto.innerHTML = "Agregar";
+                        btnProducto.classList = "btn btn-primary";
+                divProducto.appendChild(btnProducto);
+
 
 document.getElementById("divProd").appendChild(divProducto);
 
