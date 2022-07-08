@@ -1,33 +1,9 @@
 //Array de Productos
-var productos = [
-   {
-       "id": 1,
-       "nombre": "Teclado Logitech",
-       "precio": 10000,
-       "imagen": "./images/teclado.jpg"
-   },
-    {
-       "id": 2,
-       "nombre": "Mouse Logitech",
-       "precio": 5000,
-       "imagen": "./images/mouse.jpg"
-   }, {
-       "id": 3,
-       "nombre": "Gabinete Thermaltake",
-       "precio": 8000,
-       "imagen": "./images/gabiente.jpg"
-   }, {
-       "id": 4,
-       "nombre": "Fuente Thermaltake",
-       "precio": 12000,
-       "imagen": "./images/fuente.jpg"
-   }, {
-       "id": 5,
-       "nombre": "Placa de video Asus",
-       "precio": 75000,
-       "imagen": "./images/placavideo.jpg"
-   }
-   ];
+var productos = 
+
+    fetch('./json/bd.json')
+        .then( res=> res.json())
+            //.then(respuesta => console.log(respuesta));
 
 
 //Carga evento finalizar compra
