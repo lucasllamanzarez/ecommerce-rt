@@ -1,92 +1,58 @@
-//Array de Productos
-var productos = [
-   {
-       "id": 1,
-       "nombre": "Teclado Logitech",
-       "precio": 10000,
-       "imagen": "./images/teclado.jpg"
-   },
-    {
-       "id": 2,
-       "nombre": "Mouse Logitech",
-       "precio": 5000,
-       "imagen": "./images/mouse.jpg"
-   }, {
-       "id": 3,
-       "nombre": "Gabinete Thermaltake",
-       "precio": 8000,
-       "imagen": "./images/gabiente.jpg"
-   }, {
-       "id": 4,
-       "nombre": "Fuente Thermaltake",
-       "precio": 12000,
-       "imagen": "./images/fuente.jpg"
-   }, {
-       "id": 5,
-       "nombre": "Placa de video Asus",
-       "precio": 75000,
-       "imagen": "./images/placavideo.jpg"
-   }
-   ];
+//Fetch para traer los productos desde la BD de JSON
+    fetch('/json/BD.json')
+                .then(res => res.json())
+                .then(prod => {
+                    //Recorro el JSON
+                    for (i = 0; i < prod.length; i++) {
+                                
+    //Escribo Productos en el DIV del HTML
+                    const divProducto = document.createElement("div");
+                         divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd itemProd";
+                 
+                    const nombreProducto = document.createElement("h3");
+                         nombreProducto.textContent = `Producto: ` + prod[i].nombre;
+                         nombreProducto.className = "prodTitle";
+                                 divProducto.appendChild(nombreProducto);
+                             
+                    const precioProducto = document.createElement("p");
+                             precioProducto.textContent = `Precio: $`
+                             precioProducto.className = "prodPrice"
+                                 divProducto.appendChild(precioProducto);
+                     
+                    const precioProducto2 = document.createElement("p");
+                                 precioProducto2.textContent = prod[i].precio;
+                                 precioProducto2.className = "prodPrice2"
+                                     divProducto.appendChild(precioProducto2);
+                 
+                    const imgProducto = document.createElement("img");
+                                         imgProducto.src = prod[i].imagen;
+                                         imgProducto.classList = "rounded mx-auto d-block";
+                                 divProducto.appendChild(imgProducto);
+                     
+                    const cantProducto = document.createElement("input");
+                                             cantProducto.classList = "form-control prodCant";
+                                             cantProducto.type = "number";
+                                             cantProducto.value = "1";
+                                             cantProducto.id = "cantidad"
+                                 divProducto.appendChild(cantProducto);
+                     
+                    const btnProducto = document.createElement("button");
+                                                 btnProducto.innerHTML = "Agregar";
+                                                 btnProducto.classList = "btn btn-primary";
+                                                 btnProducto.id = "btnAgr" + i;
+                                                 btnProducto.addEventListener('click', agregarProd);
+                                 divProducto.appendChild(btnProducto);
+                 
+                 
+                document.getElementById("divProd").appendChild(divProducto);
+                 
+            } 
+    });
 
-
-//Carga evento finalizar compra
-window.addEventListener('DOMContentLoaded', (event) => {
-    
-    const btnFinalizarCompra = document.querySelector('.btn-success')
-    btnFinalizarCompra.addEventListener("click", finalizarCompra)
-});
-
-//Recorro el array
-   for (i = 0; i < productos.length; i++) {
-      
-    
-//Escribo Productos en el DIV del HTML
-    const divProducto = document.createElement("div");
-        divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd itemProd";
-
-    const nombreProducto = document.createElement("h3");
-        nombreProducto.textContent = `Producto: ` + productos[i].nombre;
-        nombreProducto.className = "prodTitle";
-                divProducto.appendChild(nombreProducto);
-            
-    const precioProducto = document.createElement("p");
-            precioProducto.textContent = `Precio: $`
-            precioProducto.className = "prodPrice"
-                divProducto.appendChild(precioProducto);
-    
-    const precioProducto2 = document.createElement("p");
-                precioProducto2.textContent = productos[i].precio;
-                precioProducto2.className = "prodPrice2"
-                    divProducto.appendChild(precioProducto2);
-
-    const imgProducto = document.createElement("img");
-                        imgProducto.src = productos[i].imagen;
-                        imgProducto.classList = "rounded mx-auto d-block";
-                divProducto.appendChild(imgProducto);
-    
-    const cantProducto = document.createElement("input");
-                            cantProducto.classList = "form-control prodCant";
-                            cantProducto.type = "number";
-                            cantProducto.value = "1";
-                            cantProducto.id = "cantidad"
-                divProducto.appendChild(cantProducto);
-    
-    const btnProducto = document.createElement("button");
-                                btnProducto.innerHTML = "Agregar";
-                                btnProducto.classList = "btn btn-primary";
-                                btnProducto.id = "btnAgr" + i;
-                                btnProducto.addEventListener('click', agregarProd);
-                divProducto.appendChild(btnProducto);
-
-
-document.getElementById("divProd").appendChild(divProducto);
-
-} 
 
 //Carrito
-    let carrito = []
-        const bodyCarrito = document.querySelector('.tbodyCarrito')
+    let carrito = [];
+        const bodyCarrito = document.querySelector('.tbodyCarrito');
 
 
 //Funcion Agregar Productos
@@ -197,10 +163,17 @@ function finalizarCompra ( ){
     localStorage.removeItem("carrito")
         let botonesCantidad = document.querySelectorAll('#cantidad')
             botonesCantidad.forEach(btns => {
-        btns.value = ""
+        btns.value = "1"
 
     })
         carrito = []
             renderCarrito()
     calculaTotalCarrito()
 }
+
+//Carga evento finalizar compra
+window.addEventListener('DOMContentLoaded', (event) => {
+    
+    const btnFinalizarCompra = document.querySelector('.btn-success')
+    btnFinalizarCompra.addEventListener("click", finalizarCompra)
+});

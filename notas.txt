@@ -163,3 +163,58 @@ const listaProd = localStorage.getItem('producto');
         <!-- FIN TOTAL -->
     </div>
 </section>
+
+
+//JS de Productos Viejo
+
+//var productos =[];
+
+//console.log(productos);
+
+   /*             
+//Recorro el array
+   for (i = 0; i < productos.length; i++) {
+      
+    
+//Escribo Productos en el DIV del HTML
+    const divProducto = document.createElement("div");
+        divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd itemProd";
+
+    const nombreProducto = document.createElement("h3");
+        nombreProducto.textContent = `Producto: ` + productos[i].nombre;
+        nombreProducto.className = "prodTitle";
+                divProducto.appendChild(nombreProducto);
+            
+    const precioProducto = document.createElement("p");
+            precioProducto.textContent = `Precio: $`
+            precioProducto.className = "prodPrice"
+                divProducto.appendChild(precioProducto);
+    
+    const precioProducto2 = document.createElement("p");
+                precioProducto2.textContent = productos[i].precio;
+                precioProducto2.className = "prodPrice2"
+                    divProducto.appendChild(precioProducto2);
+
+    const imgProducto = document.createElement("img");
+                        imgProducto.src = productos[i].imagen;
+                        imgProducto.classList = "rounded mx-auto d-block";
+                divProducto.appendChild(imgProducto);
+    
+    const cantProducto = document.createElement("input");
+                            cantProducto.classList = "form-control prodCant";
+                            cantProducto.type = "number";
+                            cantProducto.value = "1";
+                            cantProducto.id = "cantidad"
+                divProducto.appendChild(cantProducto);
+    
+    const btnProducto = document.createElement("button");
+                                btnProducto.innerHTML = "Agregar";
+                                btnProducto.classList = "btn btn-primary";
+                                btnProducto.id = "btnAgr" + i;
+                                btnProducto.addEventListener('click', agregarProd);
+                divProducto.appendChild(btnProducto);
+
+
+document.getElementById("divProd").appendChild(divProducto);
+
+} */
