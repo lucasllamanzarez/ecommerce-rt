@@ -1,5 +1,5 @@
 //Fetch para traer los productos desde la BD de JSON
-    fetch('/json/BD.json')
+    fetch('./json/BD.json')
                 .then(res => res.json())
                 .then(prod => {
                     //Recorro el JSON
