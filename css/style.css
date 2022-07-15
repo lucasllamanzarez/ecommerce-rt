@@ -33,6 +33,10 @@ div img {
     border-radius: 5px;
 }
 
+.disable {
+  display: none;
+}
+
 /*Pie de Pagina*/
 .pie-pagina {
     width: 100%;

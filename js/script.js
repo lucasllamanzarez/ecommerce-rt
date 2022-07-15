@@ -8,9 +8,15 @@
     //Escribo Productos en el DIV del HTML
                     const divProducto = document.createElement("div");
                          divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd itemProd";
+
+                    const idProducto = document.createElement("p");
+                            idProducto.textContent = prod[i].id;
+                            idProducto.classList = "disable";
+                            divProducto.appendChild(idProducto);
+
                  
                     const nombreProducto = document.createElement("h3");
-                         nombreProducto.textContent = `Producto: ` + prod[i].nombre;
+                         nombreProducto.textContent = prod[i].nombre;
                          nombreProducto.className = "prodTitle";
                                  divProducto.appendChild(nombreProducto);
                              
@@ -59,10 +65,12 @@
 function agregarProd(e) {
         const button = e.target
         const item = button.closest('.itemProd')
+        const idProductoCarrito = item.querySelector('.disable').textContent;
         const nombreProductoCarrito = item.querySelector('.prodTitle').textContent;
         const precioProductoCarrito = item.querySelector('.prodPrice2').textContent;
         const cantidadProductoCarrito = item.querySelector('.prodCant').value;
         const newProducto = {
+                                id: idProductoCarrito,
                             nombre: nombreProductoCarrito,
                         precio: precioProductoCarrito,
                     cantidad: cantidadProductoCarrito,
@@ -95,6 +103,15 @@ function agregarAlCarrito(newProducto) {
     renderCarrito()
 }
 
+//Funcion Vaciar Carrito
+function borrarCarrito () {
+    localStorage.removeItem("carrito")
+            let botonesCantidad = document.querySelectorAll('#cantidad')
+                botonesCantidad.forEach(btns => {
+            btns.value = "1"
+
+        })
+}
 
 //Renderizado de carrito
 function renderCarrito() {
@@ -105,19 +122,18 @@ function renderCarrito() {
                 tr.classList.add("productoCarrito")
 
         const Content = `           
-        <td class="table__productos">
-        <p class="title">${item.nombre}</p>
-        </td>
+        <td class="table__productos"><p class="title">${item.nombre}</p></td>
         <td class="table__price"><p>${item.precio}</p></td>
         <td class="table__cantidad"><p>${item.cantidad}</p></td>
         <td class="table__price"><p>${item.precioFinal}</p></td>
+        <td class="table__delete"><button type="button" onclick="borrarItem(${item.id})" class="btn btn-danger">X</button></td>
         `
-
             tr.innerHTML = Content;
                 bodyCarrito.append(tr)
                     bodyCarrito.focus()
 
         calculaTotalCarrito()
+
     })
 
 }
@@ -150,7 +166,6 @@ function addLocalStorage() {
     }
 } 
 
-
 //Funcion Finaliza Compra
 function finalizarCompra ( ){
         swal({
@@ -159,21 +174,23 @@ function finalizarCompra ( ){
             icon: "success",
         }); 
 
-//Se borra carrito localstorage
-    localStorage.removeItem("carrito")
-        let botonesCantidad = document.querySelectorAll('#cantidad')
-            botonesCantidad.forEach(btns => {
-        btns.value = "1"
-
-    })
-        carrito = []
-            renderCarrito()
+    //Se borra carrito localstorage
+    borrarCarrito ()
+            carrito = []
+        renderCarrito()
     calculaTotalCarrito()
 }
 
 //Carga evento finalizar compra
 window.addEventListener('DOMContentLoaded', (event) => {
     
-    const btnFinalizarCompra = document.querySelector('.btn-success')
-    btnFinalizarCompra.addEventListener("click", finalizarCompra)
+    const btnFinalizarCompra = document.querySelector('.btn-success');
+    btnFinalizarCompra.addEventListener("click", finalizarCompra);
+
 });
+
+//Borrar Items
+function borrarItem () {
+            localStorage.removeItem()
+                renderCarrito()
+}
