@@ -195,7 +195,7 @@ function borrarItem (id) {
         for (i = 0; i < carrito.length; i++) {
             if (id == carrito[i].id){
                     carrito.splice(i,1);
-                    calculaTotalCarrito()               
+                calculaTotalCarrito()               
             }
         } 
 
