@@ -190,7 +190,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 //Borrar Items
-function borrarItem () {
-            localStorage.removeItem()
-                renderCarrito()
+function borrarItem (id) {
+    //console.log(id)
+    var carro = localStorage.getItem('carrito');
+        console.log(carro);
+            var carroid = carrito.nombre;
+                console.log(carroid);
+
+
+            // localStorage.removeItem(carrito.id);
+                   //renderCarrito();
+                 //   console.log("entro")
+           // }
+
 }
