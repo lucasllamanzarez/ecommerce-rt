@@ -191,16 +191,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 //Borrar Items
 function borrarItem (id) {
-    //console.log(id)
-    var carro = localStorage.getItem('carrito');
-        console.log(carro);
-            var carroid = carrito.nombre;
-                console.log(carroid);
-
-
-            // localStorage.removeItem(carrito.id);
+   // console.log(id)
+    var carro = carrito;
+        for (i = 0; i < carro.length; i++) {
+            if (id == carro[i].id){
+                console.log(id);
+                console.log(carro[i].id)
+                //console.log(carro[`${id}`]);
+                    localStorage.removeItem(carro[`${id}`]);
                    //renderCarrito();
-                 //   console.log("entro")
-           // }
+                   //carrito = localStorage.getItem('carrito');
+            }
+        }
+        //localStorage.removeItem('carrito');
 
 }
