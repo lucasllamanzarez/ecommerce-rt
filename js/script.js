@@ -191,18 +191,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 //Borrar Items
 function borrarItem (id) {
-   // console.log(id)
-    var carro = carrito;
-        for (i = 0; i < carro.length; i++) {
-            if (id == carro[i].id){
+  
+        for (i = 0; i < carrito.length; i++) {
+            if (id == carrito[i].id){
                 console.log(id);
-                console.log(carro[i].id)
-                //console.log(carro[`${id}`]);
-                    localStorage.removeItem(carro[`${id}`]);
-                   //renderCarrito();
-                   //carrito = localStorage.getItem('carrito');
+                console.log(carrito[i]);
+                carrito.splice(i,id);
+                console.log(carrito);               
+                   
             }
         }
-        //localStorage.removeItem('carrito');
-
+        addLocalStorage();
+        renderCarrito();
 }
