@@ -194,13 +194,11 @@ function borrarItem (id) {
   
         for (i = 0; i < carrito.length; i++) {
             if (id == carrito[i].id){
-                console.log(id);
-                console.log(carrito[i]);
-                carrito.splice(i,id);
-                console.log(carrito);               
-                   
+                    carrito.splice(i,1);
+                    calculaTotalCarrito()               
             }
-        }
-        addLocalStorage();
-        renderCarrito();
+        } 
+
+    addLocalStorage();
+         renderCarrito();
 }
