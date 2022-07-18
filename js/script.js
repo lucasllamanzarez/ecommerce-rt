@@ -153,12 +153,12 @@ function calculaTotalCarrito() {
     document.getElementById('listaCarrito').scrollIntoView();
 }
 
+//Se carga carrito en localstorage
 function addLocalStorage() {
         localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
-//Se carga carrito en localstorage
-    window.onload = function () {
+window.onload = function () {
         const storage = JSON.parse(localStorage.getItem('carrito'));
             if (storage) {
                 carrito = storage;
@@ -167,7 +167,7 @@ function addLocalStorage() {
 } 
 
 //Funcion Finaliza Compra
-function finalizarCompra ( ){
+function finalizarCompra (){
         swal({
             title: "Exito",
             text: "Muchas gracias por tu compra!",
@@ -185,7 +185,7 @@ function finalizarCompra ( ){
 window.addEventListener('DOMContentLoaded', (event) => {
     
     const btnFinalizarCompra = document.querySelector('.btn-success');
-    btnFinalizarCompra.addEventListener("click", finalizarCompra);
+             btnFinalizarCompra.addEventListener("click", finalizarCompra);
 
 });
 
@@ -193,7 +193,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 function borrarItem (id) {
   
         for (i = 0; i < carrito.length; i++) {
-            if (id == carrito[i].id){
+                        if (id == carrito[i].id){
                     carrito.splice(i,1);
                 calculaTotalCarrito()               
             }
