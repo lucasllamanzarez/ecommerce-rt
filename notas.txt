@@ -218,3 +218,23 @@ const listaProd = localStorage.getItem('producto');
 document.getElementById("divProd").appendChild(divProducto);
 
 } */
+
+
+
+
+(event) => (
+             if (inputName == "" || inputSurname == "" || inputState == "" || inputEmail == "" 
+    || inputMessage == "" ) {
+        swal({
+            title: "Faltan Completar Datos",
+           text: "Verifique los campos obligatorios",
+            icon: "warning",
+        });
+    } else {
+        swal({
+            title: "Mensaje Enviado Correctamente",
+           text: "Nos contactaremos a la brevedad",
+            icon: "success",
+        });
+    }
+));

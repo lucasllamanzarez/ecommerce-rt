@@ -202,3 +202,33 @@ function borrarItem (id) {
     addLocalStorage();
          renderCarrito();
 }
+
+
+//Boton Enviar del Form
+let inputName = document.getElementById ('inputName').value;
+let inputSurname = document.getElementById ('inputSurname').value;
+let inputState = document.getElementById ('inputState').value;
+let inputEmail = document.getElementById ('inputEmail4').value;
+let inputMessage = document.getElementById ('inputMessage').value;
+let btnSend = document.querySelector("#send");
+
+btnSend.addEventListener('click', checkSend );
+
+//Funcion para chequear campos vacios
+function checkSend() {
+
+            if (inputName == "" || inputSurname == "" || inputState == "" || inputEmail == "" 
+            || inputMessage == "" ) {
+                swal({
+                    title: "Faltan Completar Datos",
+                    text: "Verifique los campos obligatorios",
+                    icon: "warning",
+                });
+            } else {
+                swal({
+                    title:"Mensaje Enviado Correctamente",
+                    text: "Nos contactaremos a la brevedad",
+                    icon: "success",
+                });
+            }
+        }

@@ -48,6 +48,18 @@ div img {
         padding: 25px;
 }
 
+.contacto h2{
+  padding: 35px;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.contacto form{
+  color: white;
+  font-weight: bolder;
+}
+
 /*Pie de Pagina*/
 .pie-pagina {
     width: 100%;
