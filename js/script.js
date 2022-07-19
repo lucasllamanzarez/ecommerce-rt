@@ -56,6 +56,26 @@
     });
 
 
+//Se agrega evento para fijar barra
+window.onscroll = function(){
+    AddOrRemove()
+};
+
+//Variables para obtener la barra
+let Nav = document.getElementById("barranav");
+let NavPosition = Nav.offsetTop;
+
+//Funcion para agregar y quitar clase a la barra
+function AddOrRemove(){
+    if( NavPosition >= window.pageYOffset){
+         Nav.classList.remove("fijar");
+    }
+    else{
+        Nav.classList.add("fijar");
+    }
+}
+
+
 //Carrito
     let carrito = [];
         const bodyCarrito = document.querySelector('.tbodyCarrito');
@@ -204,7 +224,7 @@ function borrarItem (id) {
 }
 
 
-//Boton Enviar del Form
+//Enviar del Form
 let inputName = document.getElementById ('inputName').value;
 let inputSurname = document.getElementById ('inputSurname').value;
 let inputState = document.getElementById ('inputState').value;
@@ -216,7 +236,7 @@ btnSend.addEventListener('click', checkSend );
 
 //Funcion para chequear campos vacios
 function checkSend() {
-
+            
             if (inputName == "" || inputSurname == "" || inputState == "" || inputEmail == "" 
             || inputMessage == "" ) {
                 swal({
@@ -224,11 +244,12 @@ function checkSend() {
                     text: "Verifique los campos obligatorios",
                     icon: "warning",
                 });
+
             } else {
                 swal({
                     title:"Mensaje Enviado Correctamente",
                     text: "Nos contactaremos a la brevedad",
                     icon: "success",
-                });
+                });        
             }
         }
