@@ -238,3 +238,73 @@ document.getElementById("divProd").appendChild(divProducto);
         });
     }
 ));
+
+
+function subirDatos(){
+    const fs = require ('fs');
+    var data = fs.readFileSync('../json/data.json');
+    var myObject = JSON.parse(data);
+    let newData = {
+        country: "Inglaterra",
+    }
+    myObject.push (newData);
+
+    var newData2 = JSON.stringify(myObject);
+    fs.writeFile ('data2.json', newData2, (err) => {
+    // comprobación de errores
+    if (err) throw err;
+    console.log ("Nuevos datos agregados");
+});   
+        
+        //listaProductos = [];
+}
+
+
+
+
+/////METODO PARA TRAERE EL ID DESDE EL JSON
+//Fetch para traer los productos desde la BD de JSON y tomar el id
+const getNextId = () => {  
+    fetch('../json/BD.json')
+        .then(res => res.json())
+            .then(prod => {
+        //Recorro el JSON
+            let id = 1;
+                for (i = 0; i < prod.length; i++) {
+                            ++id
+            }
+                document.getElementById("id").value = id;
+        }
+    );
+}
+
+getNextId()
+
+//Funcion para escribir los datos nuevos en el JSON
+function subirDatos(){
+
+}
+
+
+
+
+function mostrarProductos () {
+    fetch('json/BD.json')
+    .then(res => res.json())
+    .then(prod => {
+        //Recorro el JSON
+        for (i = 0; i < prod.length; i++) {
+    if (localStorage.getItem("productos") != prod[i].id) {
+        for (const prd of JSON.parse(localStorage.getItem("productos"))) {
+                if(prd[i] != prod[i].id){
+                    
+                    
+                }
+            
+            }
+        }
+    }
+});
+}
+
+mostrarProductos()

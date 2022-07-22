@@ -30,6 +30,10 @@ body {
         overflow: hidden;
 }
 
+.btnAgre {
+  width: 50%;
+}
+
 section {
     border: solid black 1px;
     border-radius: 5px;

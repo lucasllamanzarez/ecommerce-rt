@@ -1,3 +1,4 @@
+//---------------------------------------------CARGA DE PRODUCTOS
 //Fetch para traer los productos desde la BD de JSON
     fetch('json/BD.json')
                 .then(res => res.json())
@@ -17,12 +18,12 @@
                  
                     const nombreProducto = document.createElement("h3");
                          nombreProducto.textContent = prod[i].nombre;
-                         nombreProducto.className = "prodTitle";
+                         nombreProducto.className = "prodTitle card-title";
                                  divProducto.appendChild(nombreProducto);
                              
                     const precioProducto = document.createElement("p");
                              precioProducto.textContent = `Precio: $`
-                             precioProducto.className = "prodPrice"
+                             precioProducto.className = "prodPrice card-text"
                                  divProducto.appendChild(precioProducto);
                      
                     const precioProducto2 = document.createElement("p");
@@ -36,7 +37,7 @@
                                  divProducto.appendChild(imgProducto);
                      
                     const cantProducto = document.createElement("input");
-                                             cantProducto.classList = "form-control prodCant";
+                                             cantProducto.classList = "form-control prodCant card-text";
                                              cantProducto.type = "number";
                                              cantProducto.value = "1";
                                              cantProducto.id = "cantidad"
@@ -44,7 +45,7 @@
                      
                     const btnProducto = document.createElement("button");
                                                  btnProducto.innerHTML = "Agregar";
-                                                 btnProducto.classList = "btn btn-primary";
+                                                 btnProducto.classList = "btn btn-primary btnAgre";
                                                  btnProducto.id = "btnAgr" + i;
                                                  btnProducto.addEventListener('click', agregarProd);
                                  divProducto.appendChild(btnProducto);
@@ -53,9 +54,10 @@
                 document.getElementById("divProd").appendChild(divProducto);
                  
             } 
+
     });
 
-
+//---------------------------------------------BARRA DE NAVEGACION
 //Se agrega evento para fijar barra
 window.onscroll = function(){
     AddOrRemove()
@@ -75,7 +77,7 @@ function AddOrRemove(){
     }
 }
 
-
+//---------------------------------------------CARRO DE COMPRAS 
 //Carrito
     let carrito = [];
         const bodyCarrito = document.querySelector('.tbodyCarrito');
@@ -86,6 +88,7 @@ function agregarProd(e) {
         const button = e.target
         const item = button.closest('.itemProd')
         const idProductoCarrito = item.querySelector('.disable').textContent;
+        console.log(item.querySelector('.disable').textContent)
         const nombreProductoCarrito = item.querySelector('.prodTitle').textContent;
         const precioProductoCarrito = item.querySelector('.prodPrice2').textContent;
         const cantidadProductoCarrito = item.querySelector('.prodCant').value;
@@ -158,8 +161,7 @@ function renderCarrito() {
 
 }
 
-
-// Funcino Calcula Total Carrito
+// Funcion Calcular Total Carrito
 function calculaTotalCarrito() {
         let Total = 0;
             const itemCartTotal = document.querySelector('.itemCartTotal')
@@ -178,6 +180,7 @@ function addLocalStorage() {
         localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
+//Renderizado al cargar items en carrito
 window.onload = function () {
         const storage = JSON.parse(localStorage.getItem('carrito'));
             if (storage) {
@@ -186,7 +189,7 @@ window.onload = function () {
     }
 } 
 
-//Funcion Finaliza Compra
+//Funcion Finalizar Compra
 function finalizarCompra (){
         swal({
             title: "Exito",
@@ -223,7 +226,7 @@ function borrarItem (id) {
          renderCarrito();
 }
 
-
+//---------------------------------------------FORM DE CONTACTO
 //Enviar del Form
 let inputName = document.getElementById ('inputName').value;
 let inputSurname = document.getElementById ('inputSurname').value;
@@ -254,3 +257,64 @@ function checkSend() {
             }
         }
         
+//---------------------------------------------CARGA DE PRODUCTOS NUEVOS DESDE CARGAPROD
+//Muestro productos nuevos
+function mostrarProductos () {
+        
+    if (localStorage.getItem("productos") != null) {
+        let productos = JSON.parse(localStorage.getItem("productos"));
+
+        //Cargo productos nuevos desde el array obtenido en el localStorage
+                for(i = 5; i < productos.length; i++){
+
+                        const divProducto = document.createElement("div");
+                        divProducto.classList = "col-6 col-md-6 d-grid gap-2 divProd itemProd";
+
+                   const idProducto = document.createElement("p");
+                           idProducto.textContent = productos[i].id;
+                           idProducto.classList = "disable";
+                           divProducto.appendChild(idProducto);
+
+                
+                   const nombreProducto = document.createElement("h3");
+                        nombreProducto.textContent = productos[i].nombre;
+                        nombreProducto.className = "prodTitle card-title";
+                                divProducto.appendChild(nombreProducto);
+                            
+                   const precioProducto = document.createElement("p");
+                            precioProducto.textContent = `Precio: $`
+                            precioProducto.className = "prodPrice card-text"
+                                divProducto.appendChild(precioProducto);
+                    
+                   const precioProducto2 = document.createElement("p");
+                                precioProducto2.textContent = productos[i].precio;
+                                precioProducto2.className = "prodPrice2"
+                                    divProducto.appendChild(precioProducto2);
+                
+                   const imgProducto = document.createElement("img");
+                                        imgProducto.src = productos[i].imagen;
+                                        imgProducto.classList = "rounded mx-auto d-block";
+                                divProducto.appendChild(imgProducto);
+                    
+                   const cantProducto = document.createElement("input");
+                                            cantProducto.classList = "form-control prodCant card-text";
+                                            cantProducto.type = "number";
+                                            cantProducto.value = "1";
+                                            cantProducto.id = "cantidad"
+                                divProducto.appendChild(cantProducto);
+                    
+                   const btnProducto = document.createElement("button");
+                                                btnProducto.innerHTML = "Agregar";
+                                                btnProducto.classList = "btn btn-primary btnAgre";
+                                                btnProducto.id = "btnAgr" + productos.id;
+                                                btnProducto.addEventListener('click', agregarProd);
+                                divProducto.appendChild(btnProducto);
+                
+                
+            document.getElementById("divProd").appendChild(divProducto);
+
+        }              
+    }
+}
+
+mostrarProductos();
