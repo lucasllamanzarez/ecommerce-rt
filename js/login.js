@@ -49,7 +49,7 @@ const guardarDatos = () => {
         idProducto: id.value,
         nombreProducto: document.getElementById("nombre").value,
         precioProducto: document.getElementById("precio").value,
-        imgProducto: "../images/newItem.jpg"
+        imgProducto: "./images/newItem.jpg"
     })
     if (document.getElementById("nombre").value != "" && document.getElementById("precio").value != "") {
         if (localStorage.getItem("productos") == null) {
