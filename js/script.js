@@ -88,7 +88,6 @@ function agregarProd(e) {
         const button = e.target
         const item = button.closest('.itemProd')
         const idProductoCarrito = item.querySelector('.disable').textContent;
-        console.log(item.querySelector('.disable').textContent)
         const nombreProductoCarrito = item.querySelector('.prodTitle').textContent;
         const precioProductoCarrito = item.querySelector('.prodPrice2').textContent;
         const cantidadProductoCarrito = item.querySelector('.prodCant').value;
@@ -110,13 +109,14 @@ function agregarProd(e) {
 };
 
 
-//Funcion Agrega Nuevo Producto al carrito
+//Funcion para verificar si el producto ya existe y agregar otra unidad
 function agregarAlCarrito(newProducto) {
 
     for (let i = 0; i < carrito.length; i++) {
         if (carrito[i].nombre.trim() === newProducto.nombre.trim()) {
-                calculaTotalCarrito()
-            return null;
+
+                    calculaTotalCarrito()
+                renderCarrito()
         }
     }
 
@@ -147,7 +147,7 @@ function renderCarrito() {
         const Content = `           
         <td class="table__productos"><p class="title">${item.nombre}</p></td>
         <td class="table__price"><p>${item.precio}</p></td>
-        <td class="table__cantidad"><p>${item.cantidad}</p></td>
+        <td class="table__cantidad"><p id="cantCarr">${item.cantidad}</p></td>
         <td class="table__price"><p>${item.precioFinal}</p></td>
         <td class="table__delete"><button type="button" onclick="borrarItem(${item.id})" class="btn btn-danger">X</button></td>
         `
@@ -320,6 +320,7 @@ function mostrarProductos () {
 mostrarProductos();
 
 //Verificar si localStorage esta vacio para borrado -- Solo Pruebas --
-function borrarLocal() {
-    localStorage.clear('productos');
+    function borrarLocal() {
+            localStorage.clear('productos');
+    location.reload();
 }
