@@ -308,3 +308,21 @@ function mostrarProductos () {
 }
 
 mostrarProductos()
+
+
+//Funcion para verificar si el producto ya existe y agregar otra unidad
+function verificarCant(newProducto) {
+    
+for (let i = 0; i < carrito.length; i++) {
+    if (carrito[i].nombre.trim() === newProducto.nombre.trim()) {
+       
+        suma = parseFloat(carrito[i].cantidad)+parseFloat(newProducto.cantidad)  
+        
+            document.getElementById('cantCarr').innerHTML = suma
+
+                calculaTotalCarrito()
+            renderCarrito()
+            
+    }
+}
+}
