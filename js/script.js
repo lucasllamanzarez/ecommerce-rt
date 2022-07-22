@@ -318,3 +318,8 @@ function mostrarProductos () {
 }
 
 mostrarProductos();
+
+//Verificar si localStorage esta vacio para borrado -- Solo Pruebas --
+function borrarLocal() {
+    localStorage.clear('productos');
+}

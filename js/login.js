@@ -73,7 +73,7 @@ const guardarDatos = () => {
     else {
         swal({
             title: "Error!",
-            text: "Con el fin de crear un producto, TODOS los campos deben estar completos",
+            text: "Faltan completar datos, favor de revisar dichos campos para generar el producto correctamente",
             icon: "error",
         });
         return
