@@ -25,9 +25,7 @@ class Producto {
     }
 }
 
-//Array para guardar productos
-//let listaProductos = [];
-
+//Se Genera ID para generacion de nuevos productos correlativos
 const getNextId = () => {
     let id = 1;
     for (const prd of JSON.parse(localStorage.getItem("productos"))) {
@@ -36,7 +34,7 @@ const getNextId = () => {
     document.getElementById("id").value = id
 }
 
-//Funcion agregar producto generado en el array, guarda en el local storage y los pasa al array
+//Funcion agregar producto generado y guarda en el local storage
 const botonAgregar = document.getElementById("btnCrearProducto")
 
 botonAgregar.addEventListener("click", (e) => {
