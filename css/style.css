@@ -95,7 +95,7 @@ div img {
   color: white !important;
 }
 
-.btn_create {
+.btn_create, .btn_logOut {
        background: #934a9c !important;
        color: white !important;
 }
