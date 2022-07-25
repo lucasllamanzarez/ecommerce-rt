@@ -249,7 +249,7 @@ function checkSend() {
                 });
 
             } else {
-                window.location = '../pages/msg.html';     
+                window.location = 'pages/msg.html';     
             }
         }
 
