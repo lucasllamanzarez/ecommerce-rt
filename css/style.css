@@ -34,6 +34,14 @@ body {
   width: 50%;
 }
 
+.msgDiv {
+      text-align: center;
+      color: white;
+      font-weight: bolder;
+      font-size:x-large;
+
+}
+
 section {
     border: solid black 1px;
     border-radius: 5px;

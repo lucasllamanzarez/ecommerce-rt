@@ -249,14 +249,10 @@ function checkSend() {
                 });
 
             } else {
-                swal({
-                    title:"Mensaje Enviado Correctamente",
-                    text: "Nos contactaremos a la brevedad",
-                    icon: "success",
-                });        
+                window.location = '../pages/msg.html';     
             }
         }
-        
+
 //---------------------------------------------CARGA DE PRODUCTOS NUEVOS DESDE CARGAPROD
 //Muestro productos nuevos
 function mostrarProductos () {
