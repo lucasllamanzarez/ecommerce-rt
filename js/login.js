@@ -126,6 +126,12 @@ function validarUsuario() {
     }
 }
 
+//Log Out
+function logOut (){
+ 
+        window.location = 'cargaprod.html'
+}
+
 //Valida tecla enter para pulsar boton Login
 var inputPassword = document.getElementById("password");
 
