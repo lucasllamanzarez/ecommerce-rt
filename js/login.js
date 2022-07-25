@@ -26,7 +26,7 @@ class Producto {
 }
 
 //Array para guardar productos
-let listaProductos = [];
+//let listaProductos = [];
 
 const getNextId = () => {
     let id = 1;
